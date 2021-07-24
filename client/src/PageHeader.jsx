@@ -17,15 +17,8 @@ export const PageHeader = props => (
   >
     <Container maxW="7xl">
       <Heading size="lg" mb="3">
-        Content
+        Add Content
       </Heading>
-      <Stack direction="row" spacing="4">
-        <TabLink aria-current="page" href="#">
-          Video1
-        </TabLink>
-        <TabLink href="#">Article1</TabLink>
-        <TabLink href="#">Article2 </TabLink>
-      </Stack>
     </Container>
   </Box>
 );

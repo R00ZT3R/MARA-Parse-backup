@@ -1,4 +1,4 @@
-import { Box, Flex, HStack } from '@chakra-ui/react';
+import { Box, Flex, HStack, Img } from '@chakra-ui/react';
 import * as React from 'react';
 import {
   HiDuplicate,
@@ -6,7 +6,7 @@ import {
   HiRefresh,
   HiTemplate,
 } from 'react-icons/hi';
-import { AcademicIcon } from './assets/svg/AcademicIcon.svg';
+import AcademicIcon from './assets/svg/AcademicIcon.svg';
 
 import { NavItem } from './NavItem';
 
@@ -26,11 +26,8 @@ const MobileNavMenu = props => {
       w="full"
     >
       <Box px="4">
-        <NavItem.Mobile active label="Dashboard" />
-        <NavItem.Mobile label="Campaigns" />
-        <NavItem.Mobile label="Forms" />
-        <NavItem.Mobile label="Sites" />
-        <NavItem.Mobile label="Automation" />
+        <NavItem.Mobile active label="About" />
+        <NavItem.Mobile label="Content" />
       </Box>
     </Flex>
   );
@@ -45,11 +42,12 @@ const DesktopNavMenu = () => (
       lg: 'flex',
     }}
   >
-    <NavItem.Desktop active icon={AcademicIcon} label="Dashboard" />
     <NavItem.Desktop icon={<HiInformationCircle />} label="About" />
-    <NavItem.Desktop icon={<HiDuplicate />} label="Forms" />
-    <NavItem.Desktop icon={<HiTemplate />} label="Sites" />
-    <NavItem.Desktop icon={<HiRefresh />} label="Automation" />
+    <NavItem.Desktop
+      active
+      icon={<Img src={AcademicIcon} boxSize="4" />}
+      label="Content"
+    />
   </HStack>
 );
 

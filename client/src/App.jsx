@@ -1,4 +1,9 @@
-import { Flex, HStack, useColorModeValue as mode } from '@chakra-ui/react';
+import {
+  Flex,
+  HStack,
+  Button,
+  useColorModeValue as mode,
+} from '@chakra-ui/react';
 import * as React from 'react';
 import { Logo } from './Logo';
 import { MobileHamburgerMenu } from './MobileHamburgerMenu';
@@ -44,16 +49,6 @@ export const App = () => {
             flexShrink={0}
             h="5"
           />
-
-          <HStack spacing="3">
-            <Notification
-              display={{
-                base: 'none',
-                lg: 'inline-flex',
-              }}
-            />
-            <ProfileDropdown />
-          </HStack>
         </Flex>
       </Flex>
 
