@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("http://fonts.googleapis.com/css?family=Oswald:400,300,700");
 /*!
 * Start Bootstrap - Shop Item v5.0.1 (https://startbootstrap.com/template/shop-item)
 * Copyright 2013-2021 Start Bootstrap
@@ -51,7 +52,7 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-font-sans-serif);
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -2930,7 +2931,7 @@ textarea.form-control-lg {
   font-weight: 500;
   line-height: 1.5;
   color: #212529;
-  text-align: center;
+  margin-left: 60px;
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
@@ -2969,8 +2970,8 @@ textarea.form-control-lg {
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #320049;
-  border-color: #320049;
+  background-color: #430063;
+  border-color: #430063;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -3980,6 +3981,16 @@ textarea.form-control-lg {
   text-decoration: none;
   white-space: nowrap;
 }
+
+.navbar-brand_two {
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
 .navbar-nav {
   display: flex;
   flex-direction: column;

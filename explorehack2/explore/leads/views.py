@@ -45,6 +45,7 @@ def result_upload(request): # Change this back
     # Initialize the HuggingFace summarization pipeline
     print(to_tokenize)
     summarizer = pipeline("summarization")
+    print(len(to_tokenize))
     summarized = summarizer(to_tokenize, min_length=75, max_length=300)
     print(summarized)
 
@@ -88,12 +89,15 @@ def question_upload(request):
         qg = QuestionGenerator()
         qa_list = qg.generate(
             to_tokenize, 
-            num_questions=10, 
+            num_questions=5, 
             answer_style='all'
         )
-        context["result"] = qa_list[0]["question"]
+        for i in range(5):
+            context["result"] = qa_list
+    
         print(qa_list)
         print_qa(qa_list)
+        print(context)
         return render(request, "question-result.html", context)
 
 class AboutView(View):
