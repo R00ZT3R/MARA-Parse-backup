@@ -25,9 +25,10 @@ class IndexView(View):
     html_file = "index.html"
 
     def get(self, request, *args, **kwargs):
+        print(request)
         return render(request, self.html_file)
 
-def result_upload(request):
+def result_upload(request): # Change this back
     context = {}
 
     if(request.method == 'POST'):
@@ -42,8 +43,10 @@ def result_upload(request):
     to_tokenize = f.read()
 
     # Initialize the HuggingFace summarization pipeline
+    print(to_tokenize)
     summarizer = pipeline("summarization")
     summarized = summarizer(to_tokenize, min_length=75, max_length=300)
+    print(summarized)
 
     t1 = ""
 
@@ -65,14 +68,24 @@ class QuestionView(View):
 def question_upload(request):
     device = torch.device('cuda')
     # assert device == torch.device('cuda'), "Not using CUDA. Set: Runtime > Change runtime type > Hardware Accelerator: GPU"
+    context={}
+    if(request.method == 'POST'):
+        file1 = request.FILES['fa']
+
+    fs = OverwriteStorage()
+
+    file1.name = fs._save(file1.name, file1)
+    print(file1.name)
+    # Open and read the article
+    f = open(f'./media/{file1.name}', 'r', encoding="utf8")
+    to_tokenize = f.read()
 
     qg = QuestionGenerator()
-    with open('test_data/indian_matchmaking.txt', 'r') as a:
-        article = a.read()
-
     qa_list = qg.generate(
-        article, 
+        to_tokenize, 
         num_questions=10, 
         answer_style='all'
     )
+    context["result"] = qa_list[0]["question"]
     print_qa(qa_list)
+    return render(request, "question-result.html", context)

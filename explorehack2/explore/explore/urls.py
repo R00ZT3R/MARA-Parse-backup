@@ -19,10 +19,10 @@ from django.urls import path
 from leads.views import IndexView
 from leads.views import QuestionView
 from leads import views
-from scripts.questiongenerator import QuestionGenerator
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
+    path('question/', QuestionView.as_view(), name='question'),
     path('result/', views.result_upload, name='result_upload'),
-    path('question/', views.question_upload, name='question.upload'),
+    path('question/result/', views.question_upload, name='question_upload'),
 ]
