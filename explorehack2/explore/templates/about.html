@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 {% load static %}
-{% load qaextras %}
 
 <html lang="en">
     <head>
@@ -16,56 +15,18 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     </head>
-    <style>/* Style the buttons that are used to open and close the accordion panel */
-      .accordion {
-        background-color: #eee;
-        color: #444;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        text-align: left;
-        border: none;
-        outline: none;
-        transition: 0.4s;
-      }
-      
-      /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-      .active, .accordion:hover {
-        background-color: #ccc;
-      }
-
-      .accordion:after {
-        content: '\02795'; /* Unicode character for "plus" sign (+) */
-        font-size: 13px;
-        color: #777;
-        float: right;
-        margin-left: 5px;
-      }
-      
-      .active:after {
-        content: "\2796"; /* Unicode character for "minus" sign (-) */
-      }
-      
-      /* Style the accordion panel. Note: hidden by default */
-      .panel {
-        padding: 0 18px;
-        background-color: white;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
-      }
-    </style>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="/">MARA Parse</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">                                                                                                                  
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2">
                         <li class="nav-item"><a class="nav-link" href="/about/">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/tools/">&nbsp&nbsp Parsing Tools</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/question/">&nbsp&nbsp Question generation</a></li>
                         <li class="nav-item dropdown">
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#!">All Products</a></li>
@@ -85,26 +46,26 @@
                     <!-- <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div> -->
                     <div class="col-md-6">
                         <!-- <div class="small mb-1">SKU: BST-498</div> -->
-                        <h3 class="display-7 fw-bolder">Results:</h3>
+                        <h1 class="display-5 fw-bolder" style="text-align: center;">About MARA:</h1>
+                        <p class="lead" style="text-align: center;">
+                            MARA Parse is a tool for students and educators. This website allows you to take a piece of text 
+                            (e.g. paragraph, article, essay, etc.) and summarize all the key points using an ML model called 
+                            Pipeline. We also have a tool that allows you to enter pieces of text into our Question generator,
+                            which will then parse it and generate a list of questions related to the text.
+                            <img src="https://i.ibb.co/dPR74Yr/maralogo.png" class="center">
+                        </p>
+                        <style>
+                            .center {
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;
+                                width: 50%;
+                            }
+                        </style>
                         <!-- <div class="fs-5 mb-5"> -->
                         <!--     <span class="text-decoration-line-through">$45.00</span> -->
                         <!--     <span>$40.00</span> -->
                         <!-- </div> -->
-                        <br>
-                        <p class="lead" style="font-size: 20px;">Question text:</p>
-                        {% for qa in result %}
-                        <button class="accordion">{{qa.question}}</button>
-                        <div class="panel">
-                            {%if qa.answer|islist %}
-                                {% for answer in qa.answer %}
-                                    <li>{{answer.answer}}</li>
-                                {% endfor %}
-                                {% else %}
-                                <code>{{qa.answer}}</code>
-                                {% endif %}
-                        </div>
-                        {%endfor%}
-                        <br>
                         <br>
                         <!-- <div class="d-flex"> -->
                         <!--     <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> -->
@@ -119,20 +80,4 @@
         </section>
         </section>
     </body>
-    <script>
-      var acc = document.getElementsByClassName("accordion");
-      var i;
-      
-      for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var panel = this.nextElementSibling;
-          if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-          } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-          }
-        });
-      }
-      </script>
 </html>

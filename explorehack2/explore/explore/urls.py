@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from leads.views import IndexView
 from leads.views import QuestionView
+from leads.views import AboutView
 from leads import views
 
 urlpatterns = [
@@ -25,4 +26,5 @@ urlpatterns = [
     path('question/', QuestionView.as_view(), name='question'),
     path('result/', views.result_upload, name='result_upload'),
     path('question/result/', views.question_upload, name='question_upload'),
+    path('about/', AboutView.as_view(), name='about'),
 ]

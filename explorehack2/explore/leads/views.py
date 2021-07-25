@@ -69,7 +69,7 @@ def question_upload(request):
     device = torch.device('cuda')
     # assert device == torch.device('cuda'), "Not using CUDA. Set: Runtime > Change runtime type > Hardware Accelerator: GPU"
     context={}
-    TESTING=True
+    TESTING=False
     if TESTING: 
         context={"result":[{'question': 'How do you approach creative challenges?', 'answer': 'One way to approach creative challenges is by following the five-step process of 1) gathering material, 2) intensely working over the material in your mind, 3) stepping away from the problem, 4) allowing the idea to come back to you naturally, and 5) testing your idea in the real world and adjusting it based on feedback.'}, {'question': 'What is the definition of creativity?', 'answer': 'More often, creativity is about connecting ideas.'}, {'question': 'What is the definition of creative thinking?', 'answer': "Being creative isn't about being the first (or only) person to think of an idea."}, {'question': 'What is the definition of creative thinking?', 'answer': 'Thus, we can say creative thinking is the task of recognizing relationships between concepts.'}, {'question': 'What is the definition of creative thinking?', 'answer': 'The creative process is the act of making new connections between old ideas.'}, {'question': 'Which is the most important part of being creative?', 'answer': [{'answer': '5', 'correct': False}, {'answer': '2', 'correct': False}, {'answer': 'One', 'correct': False}, {'answer': 'first', 'correct': True}]}, {'question': 'How do you approach creative challenges?', 'answer': [{'answer': 'One', 'correct': False}, {'answer': '3', 'correct': False}, {'answer': '1', 'correct': True}, {'answer': '5', 'correct': False}]}, {'question': 'How do you approach creative challenges?', 'answer': [{'answer': 'five', 'correct': False}, {'answer': '1', 'correct': False}, {'answer': 'One', 'correct': True}, {'answer': '3', 'correct': False}]}, {'question': 'How do you approach creative challenges?', 'answer': [{'answer': 'five', 'correct': False}, {'answer': '2', 'correct': False}, {'answer': '4', 'correct': False}, {'answer': '3', 'correct': True}]}, {'question': 'How do you approach creative challenges?', 'answer': [{'answer': '5', 'correct': False}, {'answer': '3', 'correct': False}, {'answer': '2', 'correct': False}, {'answer': '4', 'correct': True}]}]}
         return render(request, "question-result.html", context)
@@ -95,3 +95,9 @@ def question_upload(request):
         print(qa_list)
         print_qa(qa_list)
         return render(request, "question-result.html", context)
+
+class AboutView(View):
+    html_file = "about.html"
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.html_file)
