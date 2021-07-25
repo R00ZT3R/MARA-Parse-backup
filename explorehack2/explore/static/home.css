@@ -2909,6 +2909,22 @@ textarea.form-control-lg {
   z-index: 3;
 }
 
+.btn-summarize {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 12px;
+
+  position: absolute;
+  width: 157px;
+  height: 54px;
+  left: 1187px;
+  top: 690px;
+
+  background: #9f70dd;
+  border-radius: 6px;
+}
+
 .btn {
   display: inline-block;
   font-weight: 500;
@@ -2935,7 +2951,7 @@ textarea.form-control-lg {
   }
 }
 .btn:hover {
-  color: #212529;
+  color: #404b57;
 }
 .btn-check:focus + .btn, .btn:focus {
   outline: 0;

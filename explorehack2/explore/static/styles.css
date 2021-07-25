@@ -1,3 +1,21 @@
 .navbar-custom {
+  background: #DD7070;
+box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
 
+}
+
+.btn-summarize {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 12px;
+
+    position: absolute;
+    width: 157px;
+    height: 54px;
+    left: 1187px;
+    top: 701px;
+
+    background: #DD7070;
+    border-radius: 6px;
 }
